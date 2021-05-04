@@ -41,7 +41,7 @@ if __name__ == "__main__":
     parser.add_argument("quotefile")
     parser.add_argument("image")
     parser.add_argument("output")
-    parser.add_argument("--dim", type=int)
+    parser.add_argument("--dim", type=float)
     parser.add_argument("--font", type=str)
     parser.add_argument("--fontsize", type=int)
 
