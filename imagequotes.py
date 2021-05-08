@@ -14,7 +14,7 @@ def load_quote(path):
     return quote["text"], quote["author"]
 
 
-def main(quote_path, image_path, result_path=None, dim=None, font=None, fontsize=None):
+def main(quote_path, image_path, result_path=None, dim=None, font=None, fontsize=None, align="center"):
     text, author = load_quote(quote_path)
     with Image.open(image_path) as image:
         if dim is not None:
@@ -25,7 +25,8 @@ def main(quote_path, image_path, result_path=None, dim=None, font=None, fontsize
             text,
             author,
             font=font,
-            fontsize=fontsize
+            fontsize=fontsize,
+            align=align
         )
 
         if result_path:
@@ -44,6 +45,7 @@ if __name__ == "__main__":
     parser.add_argument("--dim", type=float)
     parser.add_argument("--font", type=str)
     parser.add_argument("--fontsize", type=int)
+    parser.add_argument("--align", default="center", type=str)
 
     args = parser.parse_args()
 
@@ -53,5 +55,6 @@ if __name__ == "__main__":
         args.output,
         dim=args.dim,
         font=args.font,
-        fontsize=args.fontsize
+        fontsize=args.fontsize,
+        align=args.align
      )
